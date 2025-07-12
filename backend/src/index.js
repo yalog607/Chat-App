@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import path from "path";
+import cron from "../lib/cron.js";
 
 const __dirname = path.resolve();
 import { connectDB } from "../lib/db.js";
@@ -28,6 +29,8 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
   });
 }
+
+cron.start();
 
 server.listen(PORT, () => {
     console.log("Server is running on PORT: " + PORT);
