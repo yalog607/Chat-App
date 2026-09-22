@@ -1,7 +1,9 @@
 import { Server } from "socket.io";
+import dotenv from "dotenv";
 import http from "http";
 import express from "express";
 
+dotenv.config();
 const app = express();
 const server = http.createServer(app);
 const clientOrigin = process.env.CLIENT_ORIGIN || "http://localhost:5173";
