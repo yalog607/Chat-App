@@ -1,0 +1,6 @@
+chat.yalina.io.vn {
+  encode zstd gzip
+  @backend path /api/* /socket.io/*
+  reverse_proxy @backend backend:3000
+  reverse_proxy frontend:80
+}
